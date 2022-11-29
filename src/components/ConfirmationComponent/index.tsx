@@ -8,7 +8,8 @@ const Confirmation = ({ title, deleteData, brand, category, description, discoun
 
     const {
         handleClickUpdate,
-        handleClickRemove
+        handleClickRemove,
+        setLoading
          } = useContext(DataContext);
     return (
         <>
@@ -19,7 +20,7 @@ const Confirmation = ({ title, deleteData, brand, category, description, discoun
                     <BoxConfirmationTitleSpan>{title}</BoxConfirmationTitleSpan>
                 </BoxConfirmationTitle>
                 <div>
-                    <LinkStyleBackHome to={'/'}>
+                    <LinkStyleBackHome to={'/'} onClick={() => setLoading(false)}>
                             Voltar e cancelar
                     </LinkStyleBackHome>
                     {deleteData?  
