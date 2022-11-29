@@ -16,7 +16,7 @@ function DataContextProvider({ children }: Props) {
   const [dataNew, setDataNew] = useState<responseTypes[]>([]);
 
 
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
 
 
 
@@ -37,7 +37,7 @@ function DataContextProvider({ children }: Props) {
     }
     return object;
    })
-
+   setLoading(false)
    setData(newArr)
 
   };
