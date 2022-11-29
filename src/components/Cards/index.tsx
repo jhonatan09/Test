@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import {CardsTypes} from '../../types'
-import {CardContent , ImgCards, CardsContainer, LinkStyle, CardDetails, LinkStyleImg, LinkStyleEdit} from '../../style'
+import {CardContent , ImgCards, CardsContainer, LinkStyle, CardDetails, LinkStyleImg, LinkStyleEdit, CardsSpan, CardsSpanDiv, CardsTitle, CardBtnRemove} from '../../style'
 import { DataContext } from "../../store";
 
 
@@ -19,16 +19,25 @@ const Cards = ({ price, discountPercentage, title, thumbnail, item}: CardsTypes)
                     </LinkStyleImg>
                     <CardDetails>
                     <LinkStyle to={`/product/${title}`} state={{item: item, Notupdate: true}}>
-                        <h5>{title}</h5>
-                        <span>{price}</span>
-                        <span>{discountPercentage}%</span>
+                        <CardsTitle>{title}</CardsTitle>
+                        <CardsSpanDiv>
+                            <CardsSpan>
+                                <span>Preço:</span>
+                                    R$ {price}
+                                </CardsSpan>
+                            <CardsSpan>
+                                <span>Desconto:</span>
+                                {discountPercentage}%
+                            </CardsSpan>
+                        </CardsSpanDiv>
+                       
                     </LinkStyle>
                     <LinkStyleEdit to={`/product/${title}`} state={{item: item, Notupdate: false}}>
                             editar
                     </LinkStyleEdit>
-                    <div style={{cursor: 'pointer'}} onClick={() => handleClickRemoveOpenPopup(item.id, item.title)}>
+                    <CardBtnRemove  onClick={() => handleClickRemoveOpenPopup(item.id, item.title)}>
                             deletar
-                    </div>
+                    </CardBtnRemove>
                     </CardDetails>
                 </CardContent>
             </CardsContainer>

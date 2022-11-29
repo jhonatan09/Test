@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import {black, blue} from './colors'
+import {black, blue, red} from './colors'
 import {Link} from "react-router-dom";
 
 
@@ -142,6 +142,11 @@ color: ${black};
 font-size: 15px;
 font-weight: 900;
 text-decoration: inherit;
+width: 40%;
+height: 20px;
+background: aqua;
+padding: 2%;
+text-align: center;
 &:hover{
     color: ${blue};
 }
@@ -233,4 +238,43 @@ font-weight: 900;
 export const BoxConfirmationTitleSpan= styled.span`
 font-size: 15px;
 font-weight: 700;
+`;
+
+export const CardsSpanDiv= styled.div`
+display: flex;
+flex-direction: column;
+font-size: 15px;
+font-weight: 500;
+color: ${black}
+`;
+
+
+export const CardsSpan= styled.span`
+display: flex;
+flex-direction: column;
+margin: 6px;
+`;
+
+
+export const CardsTitle= styled.h5`
+color: ${black};
+font-size: 20px;
+font-weight: 800;
+`;
+
+
+export const CardBtnRemove = styled.button`
+color: ${black}; 
+font-size: 15px;
+font-weight: 900;
+width: 40%;
+height: 30px;
+background: ${red};
+padding: 2%;
+text-align: center;
+cursor: pointer;
+margin-top: 8px;
+&:hover{
+    color: ${blue};
+}
 `;
