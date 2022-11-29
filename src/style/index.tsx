@@ -213,6 +213,7 @@ font-weight: 900;
 margin: 0 16px;
 width: 120px;
 height: 50px;
+padding: 6px;
 border: 1px solid ${black}; 
 &:hover{
     color: ${blue};

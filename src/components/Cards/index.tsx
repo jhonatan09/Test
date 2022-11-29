@@ -7,7 +7,8 @@ import { DataContext } from "../../store";
 
 const Cards = ({ price, discountPercentage, title, thumbnail, item}: CardsTypes) => {
     const {
-        handleClickRemove
+        handleClickRemove,
+        handleClickRemoveOpenPopup
          } = useContext(DataContext);
     return (
         <>
@@ -25,7 +26,7 @@ const Cards = ({ price, discountPercentage, title, thumbnail, item}: CardsTypes)
                     <LinkStyleEdit to={`/product/${title}`} state={{item: item, Notupdate: false}}>
                             editar
                     </LinkStyleEdit>
-                    <div style={{cursor: 'pointer'}} onClick={() => handleClickRemove(item.id)}>
+                    <div style={{cursor: 'pointer'}} onClick={() => handleClickRemoveOpenPopup(item.id, item.title)}>
                             deletar
                     </div>
                     </CardDetails>

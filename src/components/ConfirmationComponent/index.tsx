@@ -9,7 +9,7 @@ const Confirmation = ({ title, deleteData, brand, category, description, discoun
     const {
         handleClickUpdate,
         handleClickRemove,
-        setLoading
+        setLoading,
          } = useContext(DataContext);
     return (
         <>

@@ -14,8 +14,8 @@ function DataContextProvider({ children }: Props) {
   const [input, setInput] = useState<string>("");
 
   const [dataNew, setDataNew] = useState<responseTypes[]>([]);
-
-
+  const [title, setTitle] = useState<string>("");
+  const [id, setId] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
 
 
@@ -28,6 +28,7 @@ function DataContextProvider({ children }: Props) {
     setData([])
     setData(data)
     setDataNew([])
+    setLoading(false)
   };
 
   const handleClickUpdate = (id:number, brand:string, category:string, title:string, description:string, price:number, discount:number, rating:number, stock:number) => {
@@ -43,7 +44,11 @@ function DataContextProvider({ children }: Props) {
   };
  
 
-
+  const handleClickRemoveOpenPopup = (id: number, title: string) => {
+    setLoading(true)
+    setId(id)
+    setTitle(title)
+  };
 
   useEffect(() => {
     api.get(`products`).then((response) => {
@@ -62,7 +67,10 @@ function DataContextProvider({ children }: Props) {
         handleClickRemove,
         loading,
         setLoading,
-        handleClickUpdate
+        handleClickUpdate,
+        handleClickRemoveOpenPopup,
+        id,
+        title
       }}
     >
       {children}

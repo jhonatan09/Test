@@ -1,11 +1,15 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import Card from "../../components/Cards";
+import Confirmation from "../../components/ConfirmationComponent";
 import { DataContext } from "../../store";
 import {HomeContainer} from '../../style'
 
 const HomePage = () => {
     const {
         data,
+        loading,
+        id,
+        title
          } = useContext(DataContext);
 
 
@@ -21,6 +25,7 @@ const cards = data.map( item => {
          <HomeContainer>
             {cards}
          </HomeContainer>
+         {loading? <Confirmation id={id} title={title} deleteData={true}/>: ''}
         </>
     )
 }

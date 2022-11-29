@@ -10,6 +10,9 @@ export interface AppContextInterface {
   loading: boolean;
   setLoading: (newState: boolean) => void;
   handleClickUpdate(a: number, b:string, c:string, d:string, e:string, f:number, g:number, h:number, i:number) : void;
+  handleClickRemoveOpenPopup(e: any, c: any): void;
+  id: number;
+  title: string;
 }
 export interface Props {
   children: ReactNode;
@@ -102,14 +105,14 @@ export interface DeatilsProductsTypes {
 
 
 export interface ConfirmationTypes {
-    deleteData: boolean;
+    deleteData?: boolean| any;
     id: number;
     title: string;
-    description: string;
-    price: number;
-    discountPercentage: number;
-    rating: number;
-    stock: number;
-    brand: string;
-    category: string;
+    description?: string| any;
+    price?: number| any;
+    discountPercentage?: number| any;
+    rating?: number| any;
+    stock?: number | any;
+    brand?: string | any;
+    category?: string| any;
 }
